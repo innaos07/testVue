@@ -1,52 +1,35 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import SidebarComponent from './components/SidebarComponent.vue';
+import FieldComponent from './components/FieldComponent.vue';
+
+export default {
+components: { SidebarComponent, FieldComponent },
+}
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="wrapper">
+    <main>
+      <div class="container">
+        <div class="content__top">
+          <sidebar-component></sidebar-component>
+          <field-component></field-component>
+        </div>
+        <div class="content__bottom"></div>
+      </div>
+    </main>
+  </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+ 
 </template>
 
 <style lang="scss">
 @import '@/assets/styles/index.scss';
 
-header {
-  line-height: 1.5;
-  img {
-    width: 100%;
-  }
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.content__top {
+  display: flex;
+  column-gap: 24px;
 }
 </style>
