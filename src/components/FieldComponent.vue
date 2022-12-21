@@ -9,24 +9,29 @@
         @dragenter.prevent
       >
         <inventory-items  :cell="cell"></inventory-items>
+      </div>
     </div>
-    </div>
+    <ItemModal class="inventory__modal"/>
 
     </section>
 
 </template>
 
 <script>
+import ItemModal from "./ItemModal.vue";
+
 import { computed } from "vue";
 import { useInventoryStore } from '@/store/inventory';
 import InventoryItems from './InventoryItems.vue';
 
 export default {
-  components: { InventoryItems },
+  components: { InventoryItems, ItemModal },
 
   setup () {
     const store = useInventoryStore();
-     
+    // const isShowModal = computed(() => store.isShowModal);
+
+
     return {
      store,
     }
@@ -55,7 +60,6 @@ export default {
         align-items: center;
         background: #262626;
         border: 0.5px solid #4D4D4D;
-
 
       &:first-child {
           border-radius: 12px 0 0 0;

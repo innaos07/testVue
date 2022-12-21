@@ -5,13 +5,16 @@
     draggable="true"
     class="inventory__item item-inventory"
     @dragstart="store.startDrag($event, item)"
-    :class="activeItem === item.id ? 'item-inventory--active' : '' "
+    :class="[activeItem === item.id ? 'item-inventory--active' : '' , item.color ]"
+    @click="store.getItemId(item.id)"
   >
-     <span 
-        class="item-inventory__count"
-        :class="activeItem === item.id ?  'item-inventory__count--active' : '' "  
+    <span 
+      class="item-inventory__count"
+      :class="activeItem === item.id ?  'item-inventory__count--active' : '' "  
     >
-         {{ item.quantity }} </span>
+        {{ item.quantity }} 
+    </span>
+
   </div>
 </template>
 
@@ -30,13 +33,16 @@ export default {
     const store = useInventoryStore();
     const getCellList = computed(() => store.getCellList);
     const activeItem = computed(() => store.activeItem);
+    const getItemModal = computed(() => store.getItemModal);
 
-    console.log(props.cell);
+
+    // console.log(getItemModal);
 
     return {
       store,
       getCellList,
-      activeItem
+      activeItem,
+      getItemModal
     };
   },
 };
@@ -47,11 +53,65 @@ export default {
 .item-inventory {
     position: relative;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    background-color: gold;
+    width: 100px;
+    height: 100px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+    }
+
+    &::before {
+      top: 28px;
+      left: 22px;
+    }
+
+    &::after {
+      top: 22px;
+      left: 28px;
+      z-index: 50px;
+    }
 
     &--active {
+      border-radius: 24px;
+      border: 1px solid black;
+
+    }
+
+    &--green {
+      &::before {
+        background-color: #7FAA65;
+      }
+
+      &::after {
+        background: rgba(184, 217, 152, 0.35);
+        backdrop-filter: blur(6px);
+      }
+    }
+
+    &--yellow {
+      &::before {
+        background-color: #AA9765;
+      }
+
+      &::after {
+        background: rgba(217, 187, 152, 0.35);
+        backdrop-filter: blur(6px);
+      }
+    }
+
+    &--purpure {
+      &::before {
+        background-color: #656CAA;
+      }
+
+      &::after {
+        background: rgba(116, 129, 237, 0.35);
+        backdrop-filter: blur(6px);
+      }
     }
 }
 
@@ -60,8 +120,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: -25px;
-    right: -25px;
+    bottom: 0;
+    right: 0;
     width: 16px;
     height: 16px;
     background: #262626;
