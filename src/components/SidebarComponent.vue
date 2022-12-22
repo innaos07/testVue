@@ -5,8 +5,12 @@
     </div>
     <div class="sidebar__info">
       <h2 class="sidebar__title"></h2>
-      <p class="sidebar__text"></p>
-
+      <p class="sidebar__text sidebar__text--big"></p>
+      <p class="sidebar__text sidebar__text--small"></p>
+      <p class="sidebar__text sidebar__text--big"></p>
+      <p class="sidebar__text sidebar__text--big"></p>
+      <p class="sidebar__text sidebar__text--small"></p>
+      <p class="sidebar__text sidebar__text--small"></p>
     </div>
   </aside>
 </template>
@@ -22,7 +26,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 1 30%;
+  width: 236px;
   padding: 18px 14px;
   background: #262626;
   border: 1px solid #4D4D4D;
@@ -43,6 +47,7 @@ export default {
   .sidebar__info {
     display: flex;
     flex-direction: column;
+    align-items: center;
     flex: 1;
     width: 190; 
 
@@ -52,6 +57,21 @@ export default {
       margin-bottom: 24px;
       border-radius: 8px;
       background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
+    }
+
+    .sidebar__text {
+      height: 10px;  
+      margin-bottom: 16px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #3C3C3C 0%, #444444 51.04%, #333333 100%);
+
+      &--big {
+        width: 200px;
+      }
+
+      &--small {
+        width: 170px;
+      }
     }
   }
 

@@ -111,7 +111,7 @@ export default {
   .item-modal {
     position: relative;
     top: 0;
-    right: -50%;
+    right: -51%;
     bottom: 0;
     width: 250px;
     padding: 18px 15px;
