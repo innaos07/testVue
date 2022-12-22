@@ -14,46 +14,51 @@
         :key="item.id"
         class="item-modal__content"
       >
-        <div class="item-modal__inventory item-inventory" :class="item.color"></div>
+        <div
+          class="item-modal__inventory item-inventory"
+          :class="item.color"                         
+        >
+        </div>
+
         <div class="item-modal__info">
           <h2 class="item-modal__title">{{ item.title }}</h2>
           <p class="item-modal__text">{{ item.text }}</p>
         </div>
 
         <form class="item-modal__form form-modal" v-if="isActiveModalForm">
-          <input 
-            type="text" 
-            class="form-modal__input" 
-            placeholder="Введите количество" 
-            :value="inputDeleted" 
-            @input="store.updateInputDelete" 
-            :class="{ 'form-modal__input--error' : isError }"
-            />
+          <input
+            type="text"
+            class="form-modal__input"
+            placeholder="Введите количество"
+            :value="inputDeleted"
+            @input="store.updateInputDelete"
+            :class="{ 'form-modal__input--error': isError }"
+          />
           <div class="form-modal__btns">
-            <button 
-                type="button" 
-                class="form-modal__btn form-modal__btn--cancel" 
-                @click="store.changeActiveModalForm"
+            <button
+              type="button"
+              class="form-modal__btn form-modal__btn--cancel"
+              @click="store.changeActiveModalForm"
             >
-                Отмена
+              Отмена
             </button>
-            <button 
-                type="button" 
-                class="form-modal__btn form-modal__btn--confirm"
-                @click="store.deletedItem(item.id)"
-            >   
-                Подтвердить
+            <button
+              type="button"
+              class="form-modal__btn form-modal__btn--confirm"
+              @click="store.deletedItem(item.id)"
+            >
+              Подтвердить
             </button>
           </div>
         </form>
 
-        <button 
-            type="button" 
-            class="item-modal__btn" 
-            v-else
-            @click="store.changeActiveModalForm"
+        <button
+          type="button"
+          class="item-modal__btn"
+          v-else
+          @click="store.changeActiveModalForm"
         >
-            Удалить предмет
+          Удалить предмет
         </button>
       </div>
     </div>
@@ -79,9 +84,6 @@ export default {
     const isActiveModalForm = computed(() => store.isActiveModalForm);
     const inputDeleted = computed(() => store.inputDeleted);
     const isError = computed(() => store.isError);
-    // const deletedItem = computed(() => store.deletedItem);
-
-
 
     return {
       store,
@@ -90,7 +92,6 @@ export default {
       isActiveModalForm,
       inputDeleted,
       isError,
-    //   deletedItem
     };
   },
 };
@@ -137,7 +138,7 @@ export default {
   }
 
   .item-modal__inventory {
-     margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 
   .item-inventory {
@@ -247,11 +248,11 @@ export default {
     transition: all 0.5s;
 
     &:hover {
-        opacity: 0.8;
+      opacity: 0.8;
     }
 
     &:active {
-        opacity: 0.5;
+      opacity: 0.5;
     }
   }
 
@@ -264,71 +265,70 @@ export default {
     margin-bottom: -18px;
     padding: 20px;
     background: rgba(38, 38, 38, 1);
-    border-top: 1px solid #4D4D4D;
+    border-top: 1px solid #4d4d4d;
     border-radius: 0 0 12px 0;
     backdrop-filter: blur(8px);
 
     .form-modal__input {
-        width: 100%;
-        min-height: 40px;
-        padding: 11px 12px;
-        margin-bottom: 20px;
-        background: #262626;
-        border: 1px solid #4D4D4D;
-        border-radius: 4px;
-        outline: none;
-        color: #FFFFFF;
+      width: 100%;
+      min-height: 40px;
+      padding: 11px 12px;
+      margin-bottom: 20px;
+      background: #262626;
+      border: 1px solid #4d4d4d;
+      border-radius: 4px;
+      outline: none;
+      color: #ffffff;
 
-        &--error {
-            border: 1px solid #af3030;
-
-        }
+      &--error {
+        border: 1px solid #af3030;
+      }
     }
 
     .form-modal__btns {
-        display: flex;
-        column-gap: 10px;
+      display: flex;
+      column-gap: 10px;
     }
 
     .form-modal__btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 33px;
-        border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 33px;
+      border-radius: 8px;
 
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        transition: all 0.5s;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      transition: all 0.5s;
 
-        &--cancel {
-            padding: 8px 19px; 
-            background: #FFFFFF;
-            color: #2D2D2D;
+      &--cancel {
+        padding: 8px 19px;
+        background: #ffffff;
+        color: #2d2d2d;
 
-            &:hover {
-                opacity: 0.8;
-            }
-
-            &:active {
-                opacity: 0.5;
-            }
+        &:hover {
+          opacity: 0.8;
         }
 
-        &--confirm {
-            padding: 8px 15px;
-            background: #FA7272;
-            color: #FFFFFF;
-
-            &:hover {
-                opacity: 0.8;
-            }
-
-            &:active {
-                opacity: 0.5;
-            }
+        &:active {
+          opacity: 0.5;
         }
+      }
+
+      &--confirm {
+        padding: 8px 15px;
+        background: #fa7272;
+        color: #ffffff;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          opacity: 0.5;
+        }
+      }
     }
   }
 }

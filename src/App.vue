@@ -1,9 +1,9 @@
 <script>
 import SidebarComponent from './components/SidebarComponent.vue';
-import FieldComponent from './components/FieldComponent.vue';
+import InventoryComponent from './components/InventoryComponent.vue';
 
 export default {
-components: { SidebarComponent, FieldComponent },
+components: { SidebarComponent, InventoryComponent },
 }
 
 </script>
@@ -14,7 +14,7 @@ components: { SidebarComponent, FieldComponent },
       <div class="container">
         <div class="content__top">
           <sidebar-component></sidebar-component>
-          <field-component></field-component>
+          <inventory-component></inventory-component>
         </div>
         <div class="content__bottom"></div>
       </div>
