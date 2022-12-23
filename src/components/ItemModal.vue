@@ -79,7 +79,6 @@ export default {
   padding: 18px 15px;
   padding-top: 55px;
   background: rgba(38, 38, 38, 0.9);
-  border: 0.5px solid #4d4d4d;
   border-left: 1px solid #4d4d4d;
   border-radius: 0 12px 12px 0;
   z-index: 2000;
