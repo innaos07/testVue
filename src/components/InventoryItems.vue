@@ -10,7 +10,7 @@
   >
     <span
       class="item-inventory__count"
-      :class="activeItem === item.id ? 'item-inventory__count--active' : '' "
+      :class="activeItem === item.id ? 'item-inventory__count--active' : ''"
     >
       {{ item.quantity }}
     </span>
@@ -47,9 +47,10 @@ export default {
 <style lang="scss">
 .item-inventory {
   position: relative;
-  cursor: pointer;
   width: 100px;
   height: 100px;
+  background: #262626;
+  cursor: pointer;
 
   &::before,
   &::after {

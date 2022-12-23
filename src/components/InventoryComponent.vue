@@ -7,7 +7,6 @@
         class="inventory__cell"
         @drop="store.onDrop($event, cell)"
         @dragover.prevent
-        @dragenter.prevent
       >
         <inventory-items :cell="cell"></inventory-items>
       </div>
@@ -31,7 +30,7 @@ export default {
 
     onMounted(() => {
       store.addItemList();
-  })
+    });
 
     return {
       store,
@@ -43,15 +42,17 @@ export default {
 <style lang="scss">
 .inventory {
   position: relative;
-  flex: 0 1 500px;
+  width: 512px;
+  overflow: hidden;
 
   .inventory__table {
     height: 100%;
     display: grid;
     grid-template-columns: 102px 102px 102px 102px 102px;
     grid-template-rows: 102px 102px 102px 102px 102px;
-    border: 0.5px solid #4d4d4d;
+    border: 1px solid #4d4d4d;
     border-radius: 12px;
+    overflow: hidden;
   }
 
   .inventory__cell {
@@ -59,7 +60,16 @@ export default {
     justify-content: center;
     align-items: center;
     background: #262626;
-    border: 0.5px solid #4d4d4d;
+    border-right: 1px solid #4d4d4d;
+    border-bottom: 1px solid #4d4d4d;
+
+    &:nth-child(5n) {
+      border-right: none;
+    }
+
+    &:nth-last-child(-n + 5) {
+      border-bottom: none;
+    }
 
     &:first-child {
       border-radius: 12px 0 0 0;

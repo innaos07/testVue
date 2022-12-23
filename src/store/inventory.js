@@ -43,8 +43,7 @@ export const useInventoryStore = defineStore("inventory", {
   },
   getters: {
     getCellList(state) {
-      return (cellID) =>
-        state.itemList.filter((item) => item.cell === cellID);
+      return (cellID) => state.itemList.filter((item) => item.cell === cellID);
     },
     getItemModal(state) {
       return state.itemList.filter((item) => item.id === this.activeItemModal);
@@ -57,11 +56,11 @@ export const useInventoryStore = defineStore("inventory", {
   },
   actions: {
     addItemList() {
-      if(localStorage.getItem('itemList')) {
+      if (localStorage.getItem("itemList")) {
         try {
-          this.itemList = JSON.parse(localStorage.getItem('itemList'));
-        } catch(e) {
-          localStorage.removeItem('itemList');
+          this.itemList = JSON.parse(localStorage.getItem("itemList"));
+        } catch (e) {
+          localStorage.removeItem("itemList");
         }
       }
     },
@@ -95,7 +94,7 @@ export const useInventoryStore = defineStore("inventory", {
       this.isShowModal = !this.isShowModal;
     },
     getItemId(itemID) {
-      this.isShowModal = !this.isShowModal;
+      this.isShowModal = true;
       this.activeItemModal = itemID;
     },
     changeActiveModalForm() {
@@ -117,27 +116,27 @@ export const useInventoryStore = defineStore("inventory", {
       }
     },
     deletedItem(itemID) {
-      this.validateCountDelete();   
+      this.validateCountDelete();
 
-      if(this.countDelete) {
+      if (this.countDelete) {
         this.itemList.map((item) => {
           if (item.id === itemID) {
             item.quantity < this.countDelete ? (this.isError = true) : null;
-            item.quantity >= this.countDelete ? (item.quantity -= this.countDelete): null;
+            item.quantity >= this.countDelete ? (item.quantity -= this.countDelete) : null;
             this.saveLocalStorage();
 
-            if(item.quantity == 0) {
+            if (item.quantity == 0) {
               this.activeItemModal = -1;
               this.isShowModal = false;
-              this.deletedFromLocalStorage(itemID)
+              this.deletedFromLocalStorage(itemID);
             }
           }
         });
       }
     },
     deletedFromLocalStorage(itemID) {
-      this.itemList = this.itemList.filter((item) => item.id != itemID)
+      this.itemList = this.itemList.filter((item) => item.id != itemID);
       this.saveLocalStorage();
-    }
+    },
   },
 });
