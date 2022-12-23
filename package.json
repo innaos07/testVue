@@ -2,20 +2,24 @@
   "name": "testVue",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://innaos07.github.io/testVue/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.2.45"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.0.0",
+    "gh-pages": "^4.0.0",
     "pinia": "^2.0.22",
-    "vue-router": "^4.1.5",
     "sass": "^1.54.9",
-    "sass-loader": "^13.0.2"
+    "sass-loader": "^13.0.2",
+    "vite": "^4.0.0",
+    "vue-router": "^4.1.5"
   }
 }

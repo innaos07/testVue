@@ -70,16 +70,6 @@ export default {
 
 <style lang="scss">
 
-.item-modal-transition-enter-active,
-.item-modal-transition-leave-active {
-  transition: all 0.5s;
-}
-
-.item-modal-transition-enter-from,
-.item-modal-transition-leave-to {
-  transform: translateX(250px);
-}
-
 .item-modal {
   position: absolute;
   top: 0;
@@ -88,12 +78,11 @@ export default {
   height: 100%;
   padding: 18px 15px;
   padding-top: 55px;
-  background: rgba(38, 38, 38, 0.5);
-  backdrop-filter: blur(8px);
+  background: rgba(38, 38, 38, 0.9);
   border: 0.5px solid #4d4d4d;
   border-left: 1px solid #4d4d4d;
   border-radius: 0 12px 12px 0;
-  z-index: 20000;
+  z-index: 2000;
   opacity: 1;
 
   .item-modal__close-icon {
@@ -138,9 +127,6 @@ export default {
       z-index: 50px;
     }
 
-    &--active {
-    }
-
     &--green {
       &::before {
         background-color: #7faa65;
@@ -148,7 +134,6 @@ export default {
 
       &::after {
         background: rgba(184, 217, 152, 0.35);
-        backdrop-filter: blur(6px);
       }
     }
 
@@ -159,7 +144,6 @@ export default {
 
       &::after {
         background: rgba(217, 187, 152, 0.35);
-        backdrop-filter: blur(6px);
       }
     }
 
@@ -170,7 +154,6 @@ export default {
 
       &::after {
         background: rgba(116, 129, 237, 0.35);
-        backdrop-filter: blur(6px);
       }
     }
   }
@@ -232,5 +215,16 @@ export default {
       opacity: 0.5;
     }
   }
+}
+
+
+.item-modal-transition-enter-active,
+.item-modal-transition-leave-active {
+  transition: all 0.5s;
+}
+
+.item-modal-transition-enter-from,
+.item-modal-transition-leave-to {
+  transform: translateX(250px);
 }
 </style>

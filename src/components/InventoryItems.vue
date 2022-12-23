@@ -78,7 +78,6 @@ export default {
 
     &::after {
       background: rgba(184, 217, 152, 0.35);
-      backdrop-filter: blur(6px);
     }
   }
 
@@ -89,7 +88,6 @@ export default {
 
     &::after {
       background: rgba(217, 187, 152, 0.35);
-      backdrop-filter: blur(6px);
     }
   }
 
@@ -100,7 +98,6 @@ export default {
 
     &::after {
       background: rgba(116, 129, 237, 0.35);
-      backdrop-filter: blur(6px);
     }
   }
 }

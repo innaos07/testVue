@@ -44,15 +44,15 @@ export default {
   position: relative;
   width: 512px;
   overflow: hidden;
+  border: 1px solid #4d4d4d;
+  border-radius: 12px;
+  overflow: hidden;
 
   .inventory__table {
     height: 100%;
     display: grid;
     grid-template-columns: 102px 102px 102px 102px 102px;
     grid-template-rows: 102px 102px 102px 102px 102px;
-    border: 1px solid #4d4d4d;
-    border-radius: 12px;
-    overflow: hidden;
   }
 
   .inventory__cell {
